@@ -3,6 +3,7 @@ from flask_cors import CORS
 import pandas as pd
 import numpy as np
 import joblib
+import os
 
 # Cargar el modelo entrenado y las columnas de features
 MODEL_PATH = 'model/energy_predictor_model.joblib'
@@ -121,4 +122,5 @@ def predict():
     return jsonify({'status': 'success', 'prediccion_MWh': float(pred)})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)

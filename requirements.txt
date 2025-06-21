@@ -4,3 +4,4 @@ xgboost-cpu
 numpy
 flask-cors
 joblib
+os
